@@ -18,4 +18,5 @@ numpy
 PyYAML
 scikit-learn
 apache-airflow
+openpyxl
 -e .
