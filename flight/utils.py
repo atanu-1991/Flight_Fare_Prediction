@@ -48,3 +48,4 @@ def write_yaml_file(file_path, data:dict):
     except Exception as e:
         logging.debug(str(e))
         raise FlightException(e, sys)
+
