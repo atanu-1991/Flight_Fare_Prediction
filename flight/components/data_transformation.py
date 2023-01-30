@@ -73,6 +73,7 @@ class DataTransformation:
                         tt = tt + int(i[:-1]) * 60
                     else:
                         tt = tt + int(i[:-1])
+                return tt
 
             df.Duration = df.Duration.apply(duration_in_min)
 
@@ -177,7 +178,7 @@ class DataTransformation:
 
                     for i in set(train_df[col].unique()).difference(list(test_df[col].unique())):
 
-                        test_df.loc[len(test_df.index)] = [i,'Kolkata', 'Bangalore', 120, '0', 12, 8, 8, 30, 10, 30, 6000]
+                        test_df.loc[len(test_df.index)] = [i,'Kolkata', 'Banglore', 120, '0', 12, 8, 8, 30, 10, 30, 6000]
                         logging.info("1 row Inserted")
 
             logging.info(f"new inserted rows: \n{test_df.iloc[-3:]}")
@@ -198,9 +199,9 @@ class DataTransformation:
             test_df_Indigo = airline_test_df[airline_test_df.Airline == 'IndiGo']
             test_df_Indigo = self.encode_airline_df(df=test_df_Indigo)
 
-            train_df_AirIndia = airline_train_df[airline_train_df.Airline == 'AirIndia']
+            train_df_AirIndia = airline_train_df[airline_train_df.Airline == 'Air India']
             train_df_AirIndia = self.encode_airline_df(df=train_df_AirIndia)
-            test_df_AirIndia = airline_test_df[airline_test_df.Airline == 'AirIndia']
+            test_df_AirIndia = airline_test_df[airline_test_df.Airline == 'Air India']
             test_df_AirIndia = self.encode_airline_df(df=test_df_AirIndia)
 
             train_df_MultipleCarriers = airline_train_df[airline_train_df.Airline == 'Multiple carriers']

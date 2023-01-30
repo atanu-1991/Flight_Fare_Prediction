@@ -33,6 +33,17 @@ class DataTransformationArtifact:
     GoAir_train_path:str
     GoAir_test_path:str
 
-class ModelTrainingArtifact:...
+@dataclass
+class ModelTrainingArtifact:
+    gen_model_path:str
+    JetAirways_model_path:str
+    Indigo_model_path:str
+    AirIndia_model_path:str
+    MultipleCarriers_model_path:str
+    SpiceJet_model_path:str
+    Vistara_model_path:str
+    AirAsia_model_path:str
+    GoAir_model_path:str
+
 class ModelEvaluationArtifact:...
 class ModelPusherArtifact:...

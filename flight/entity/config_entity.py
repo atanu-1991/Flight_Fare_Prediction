@@ -6,6 +6,16 @@ import os, sys
 FILE_NAME = "flight.csv"
 TRAIN_FILE_NAME = "train.csv"
 TEST_FILE_NAME = "test.csv"
+GEN_MODEL_FILE_NAME = "gen_model.pkl"
+JetAirways_MODEL_FILE_NAME = "JetAirways_model.pkl"
+Indigo_MODEL_FILE_NAME = "Indigo_model.pkl"
+AirIndia_MODEL_FILE_NAME = "AirIndia_model.pkl"
+MultipleCarriers_MODEL_FILE_NAME = "MultipleCarriers_model.pkl"
+SpiceJet_MODEL_FILE_NAME = "SpiceJet_model.pkl"
+Vistara_MODEL_FILE_NAME = "Vistara_model.pkl"
+AirAsia_MODEL_FILE_NAME = "AirAsia_model.pkl"
+GoAir_MODEL_FILE_NAME = "GoAir_model.pkl"
+
 
 class TrainingPipelineConfig:
 
@@ -109,6 +119,36 @@ class DataTransformationConfig:
 
 
 
-class ModelTrainingConfig:...
+class ModelTrainingConfig:
+
+    def __init__(self, training_pipeline_config:TrainingPipelineConfig):
+
+        try:
+             self.model_training_dir = os.path.join(training_pipeline_config.artifact_dir, "model_training")
+             self.gen_model_path = os.path.join(self.model_training_dir, "model", GEN_MODEL_FILE_NAME)
+             self.JetAirways_model_path = os.path.join(self.model_training_dir, "model", JetAirways_MODEL_FILE_NAME)
+             self.Indigo_model_path = os.path.join(self.model_training_dir, "model", Indigo_MODEL_FILE_NAME)
+             self.AirIndia_model_path = os.path.join(self.model_training_dir, "model", AirIndia_MODEL_FILE_NAME)
+             self.MultipleCarries_model_path = os.path.join(self.model_training_dir, "model", MultipleCarriers_MODEL_FILE_NAME)
+             self.SpiceJet_model_path = os.path.join(self.model_training_dir, "model", SpiceJet_MODEL_FILE_NAME)
+             self.Vistara_model_path = os.path.join(self.model_training_dir, "model", Vistara_MODEL_FILE_NAME)
+             self.AirAsia_model_path = os.path.join(self.model_training_dir, "model", AirAsia_MODEL_FILE_NAME)
+             self.GoAir_model_path = os.path.join(self.model_training_dir, "model", GoAir_MODEL_FILE_NAME)
+             self.grid_param = {
+                'max_depth': list(range(5,55,5)),
+                'max_features': ['log2', 'sqrt'],
+                'min_samples_leaf': list(range(1,6)),
+                'min_samples_split': list(range(1,100,2)),
+                'n_estimators': list(range(100,1300,100))
+             }
+             self.expected_score = 0.7
+             self.overfitting_threshold = 0.4
+             self.TARGET_COLUMN = "Price"
+
+        except Exception as e:
+
+            logging.debug(str(e))
+            raise FlightException(error_message=e, error_detail=sys)
+
 class ModelEvaluationConfig:...
 class ModelPusherConfig:...

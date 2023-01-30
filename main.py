@@ -5,6 +5,7 @@ from flight.entity import config_entity
 from flight.components.data_ingestion import DataIngestion
 from flight.components.data_validation import DataValidation
 from flight.components.data_transformation import DataTransformation
+from flight.components.model_training import ModelTrainer
 
 import sys,os
 
@@ -47,7 +48,14 @@ if __name__ == "__main__":
 
           data_transformation = DataTransformation(data_transformation_config=data_transformation_config, data_ingestion_artifact=data_ingestion_artifact)
           data_transformation_artifact = data_transformation.initiate_data_transformation()
-          print(data_transformation_artifact)
+          # print(data_transformation_artifact)
+
+          # Model Training
+          model_training_config = config_entity.ModelTrainingConfig(training_pipeline_config=training_pipeline_config)
+
+          model_training = ModelTrainer(model_training_config=model_training_config, data_transformation_artifact=data_transformation_artifact)
+          model_training_artifact = model_training.initiate_model_trainer()
+          print(model_training_artifact)
 
      except Exception as e:
           logging.debug(str(e))
