@@ -6,6 +6,7 @@ from flight.components.data_ingestion import DataIngestion
 from flight.components.data_validation import DataValidation
 from flight.components.data_transformation import DataTransformation
 from flight.components.model_training import ModelTrainer
+from flight.components.model_pusher import ModelPusher
 
 import sys,os
 
@@ -55,7 +56,14 @@ if __name__ == "__main__":
 
           model_training = ModelTrainer(model_training_config=model_training_config, data_transformation_artifact=data_transformation_artifact)
           model_training_artifact = model_training.initiate_model_trainer()
-          print(model_training_artifact)
+          # print(model_training_artifact)
+
+          # Model Pusher
+          model_pusher_config = config_entity.ModelPusherConfig()
+
+          model_pusher = ModelPusher(model_pusher_config=model_pusher_config, model_training_artifact=model_training_artifact)
+          model_pusher_artifact = model_pusher.initiate_model_pusher()
+          print(model_pusher_artifact)
 
      except Exception as e:
           logging.debug(str(e))

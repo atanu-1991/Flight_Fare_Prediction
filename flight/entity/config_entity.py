@@ -151,4 +151,14 @@ class ModelTrainingConfig:
             raise FlightException(error_message=e, error_detail=sys)
 
 class ModelEvaluationConfig:...
-class ModelPusherConfig:...
+
+class ModelPusherConfig:
+
+    def __init__(self,):
+
+        try:
+            self.saved_model_dir = os.path.join("saved_models")
+
+        except Exception as e:
+            logging.debug(str(e))
+            raise FlightException(error_message=e, error_detail=sys)

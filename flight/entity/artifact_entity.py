@@ -46,4 +46,7 @@ class ModelTrainingArtifact:
     GoAir_model_path:str
 
 class ModelEvaluationArtifact:...
-class ModelPusherArtifact:...
+
+@dataclass
+class ModelPusherArtifact:
+    saved_model_dir:str
