@@ -18,5 +18,7 @@ numpy
 PyYAML
 scikit-learn
 apache-airflow
+Flask
+Flask-Cors
 openpyxl
 -e .
