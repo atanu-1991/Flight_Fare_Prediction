@@ -36,13 +36,13 @@ columns = ['Duration', 'Total_Stops', 'Day',
        'Airline_Trujet', 'Airline_Vistara', 'Airline_Vistara Premium economy']
 
 airline_model_dict = {
-    "JetAirways":JetAirways_model,
-    "Indigo":Indigo_model,
-    "AirIndia":AirIndia_model,
-    "MultipleCarriers":MultipleCarriers_model,
-    "SpiceJect":SpiceJect_model,
+    "Jet Airways":JetAirways_model,
+    "IndiGo":Indigo_model,
+    "Air India":AirIndia_model,
+    "Multiple carriers":MultipleCarriers_model,
+    "SpiceJet":SpiceJect_model,
     "Vistara":Vistara_model,
-    "AirAsia":AirAsia_model,
+    "Air Asia":AirAsia_model,
     "GoAir": GoAir_model
 }
 

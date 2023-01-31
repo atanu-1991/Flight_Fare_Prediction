@@ -155,7 +155,7 @@ def transform_and_predict(data: List):
         logging.info(f"duration of Flight: {duration}")
 
         # Adding First 8 features to data transformation list
-        data_trf = [duration, int(data[4]), dep_time.day, dep_time._month, dep_time._hour, dep_time.minute, ariv_time.hour, ariv_time.minute]
+        data_trf = [duration, int(data[4]), dep_time.day, dep_time.month, dep_time.hour, dep_time.minute, ariv_time.hour, ariv_time.minute]
 
         if data[-1] != "Any":
 
