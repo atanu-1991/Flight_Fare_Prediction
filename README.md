@@ -11,12 +11,13 @@ pip install -r requirements.txt
 ### Step 2 - Run main.py file
 
 ```bash
-python main.py
+python main.py 
 ```
 
 Git version
 ```
-git --version    
+git --version  
+
 ```
 
 This changes is made in neuro lab
