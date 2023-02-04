@@ -2,13 +2,13 @@ import pymongo
 import pandas as pd
 import json
 
-# from sensor.config import mongo_client
+from flight.config import mongo_client
 
 
 # Provide the mongodb localhost url to connect python to mongodb.
 client = pymongo.MongoClient("mongodb://localhost:27017/neurolabDB")
 
-DATA_FILE_PATH = "/config/workspace/Data_Train.xlsx"
+DATA_FILE_PATH = "E:\FullStack_Data_Science_Bootcamp\DOWNLOAD_PROJECT\Flight_Fare_Prediction\Data_Train.xlsx"
 DATABASE_NAME = "flight_fare_prediction"
 COLLECTION_NAME = "flight_fare"
 
@@ -24,5 +24,5 @@ if __name__ == "__main__":
     print(json_record[0])
 
     # insert converted json record to mong db
-    client[DATABASE_NAME][COLLECTION_NAME].insert_many(json_record)
+    mongo_client[DATABASE_NAME][COLLECTION_NAME].insert_many(json_record)
 
