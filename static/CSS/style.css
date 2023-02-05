@@ -9,8 +9,8 @@
   body {
     background-image: linear-gradient(
       to right bottom,
-      rgba(126, 213, 111, 0.8),
-      rgba(40, 180, 133, 0.8)
+      rgba(121, 111, 213, 0.8),
+      rgba(180, 40, 63, 0.8)
     );
   }
   .navbar-brand {
