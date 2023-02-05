@@ -32,7 +32,7 @@ jobs:
         run: |
           aws elasticbeanstalk create-application-version \
           --application-name pre-flig \
-          --source-bundle S3Bucket="flight-fare",S3Key="deploy_package.zip" \
+          --source-bundle S3Bucket="predict-flight",S3Key="deploy_package.zip" \
           --version-label "ver-${{ github.sha }}" \
           --description "commit-sha-${{ github.sha }}"
 
