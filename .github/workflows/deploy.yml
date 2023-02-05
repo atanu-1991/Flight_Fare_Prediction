@@ -26,16 +26,16 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Upload package to S3 bucket
-        run: aws s3 cp deploy_package.zip s3://price-fli/
+        run: aws s3 cp deploy_package.zip s3://prediction-flight/
 
       - name: Create new ElasticBeanstalk Application Version
         run: |
           aws elasticbeanstalk create-application-version \
-          --application-name pic-fli \
-          --source-bundle S3Bucket="price-fli",S3Key="deploy_package.zip" \
+          --application-name flight-fare \
+          --source-bundle S3Bucket="prediction-flight",S3Key="deploy_package.zip" \
           --version-label "ver-${{ github.sha }}" \
           --description "commit-sha-${{ github.sha }}"
 
       - name: Deploy new ElasticBeanstalk Application Version
-        run: aws elasticbeanstalk update-environment --environment-name Picfli-env --version-label "ver-${{ github.sha }}"
+        run: aws elasticbeanstalk update-environment --environment-name Flightfare-env --version-label "ver-${{ github.sha }}"
 
