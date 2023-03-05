@@ -13,7 +13,7 @@ This repository consists of files required for end to end implementation and dep
 
 ## App Link
 If you want to view the deployed model, click on the following link:<br />
-[URL](http://flightfare-env.eba-y2mpi355.ap-south-1.elasticbeanstalk.com/)
+[URL](http://flightfare-env.eba-27fuci38.ap-south-1.elasticbeanstalk.com/)
 
 ## About the App  
 The Airline Flight Fare Prediction is a Flask web application to predict airline flight fares across the Indian cities. The dataset for the project is a time-stamped dataset so, while building the model, extensive pre-processing was done on the dataset especially on the date-time columns to finally come up with a ML model which could effectively predict airline fares across various Indian Cities. 
